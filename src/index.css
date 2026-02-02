@@ -1,0 +1,501 @@
+@import "tailwindcss";
+
+/* ============================================
+   ChatGPT Clone - Custom Styles
+   ============================================ */
+
+/* Base Styles */
+:root {
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Roboto', system-ui, sans-serif;
+  --font-code: 'Fira Code', monospace;
+  
+  /* ChatGPT-like Colors - Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f7f8;
+  --bg-sidebar: #f9f9f9;
+  --text-primary: #0d0d0d;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-color: #10a37f;
+  --accent-hover: #0d8a6a;
+}
+
+/* Dark Theme Variables */
+.dark {
+  --bg-primary: #212121;
+  --bg-secondary: #2f2f2f;
+  --bg-sidebar: #171717;
+  --text-primary: #ececec;
+  --text-secondary: #c5c5c5;
+  --text-muted: #9b9b9b;
+  --border-color: #424242;
+  --accent-color: #10a37f;
+  --accent-hover: #19c37d;
+}
+
+html {
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+code, pre {
+  font-family: var(--font-code);
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+.heading-1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .heading-1 {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .heading-2 {
+    font-size: 1.875rem;
+  }
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.625;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Chat Message Styles
+   ============================================ */
+.message-bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  max-width: 85%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .message-bubble {
+    max-width: 75%;
+  }
+}
+
+.message-user {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-bottom-right-radius: 0.375rem;
+}
+
+.message-ai {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+.btn-primary {
+  padding: 0.625rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--accent-color);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  padding: 0.625rem 1.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:focus {
+  outline: none;
+}
+
+.btn-icon {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  transition: all 0.2s ease-out;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.btn-icon:focus {
+  outline: none;
+}
+
+/* ============================================
+   Input Styles
+   ============================================ */
+.chat-input-container {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.chat-input-wrapper {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-out;
+}
+
+.chat-input-wrapper:focus-within {
+  box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
+  border-color: var(--accent-color);
+}
+
+.chat-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  resize: none;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+.chat-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Sidebar Styles
+   ============================================ */
+.sidebar {
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+.sidebar-item-active {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Scrollbar Styles
+   ============================================ */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--text-muted);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-secondary);
+}
+
+/* ============================================
+   Typing Animation
+   ============================================ */
+@keyframes typing-dot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.typing-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+  animation: typing-dot 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ============================================
+   Typewriter Effect for AI Messages
+   ============================================ */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typewriter-cursor::after {
+  content: '▋';
+  animation: blink 1s infinite;
+  color: var(--text-muted);
+  margin-left: 0.125rem;
+}
+
+/* ============================================
+   Markdown Styles
+   ============================================ */
+.markdown-content {
+  color: var(--text-primary);
+  line-height: 1.625;
+}
+
+.markdown-content p {
+  margin-bottom: 0.75rem;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+.markdown-content code:not(pre code) {
+  padding: 0.125rem 0.375rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-code);
+}
+
+.markdown-content pre {
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-content pre code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  font-family: var(--font-code);
+  background-color: #1f2937; /* Keep code blocks dark even in light mode for consistency with most IDEs, or change if desired */
+  color: #f3f4f6;
+}
+
+.markdown-content h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+  color: var(--text-primary);
+}
+
+.markdown-content h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+}
+
+.markdown-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  color: var(--text-primary);
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  background-color: var(--bg-secondary);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-content a {
+  color: var(--accent-color);
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Code Block with Copy Button
+   ============================================ */
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #111827;
+  color: #d1d5db;
+  font-size: 0.75rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom: 1px solid #374151;
+}
+
+.code-block-copy {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  transition: color 0.2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.code-block-copy:hover {
+  color: white;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}

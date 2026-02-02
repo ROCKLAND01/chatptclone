@@ -8,7 +8,9 @@ import axios from 'axios';
 
 const ChatContext = createContext(null);
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// Sanitize API URL: remove trailing slash and /api suffix if explicitly present to avoid duplication
+const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = rawApiUrl.replace(/\/$/, '').replace(/\/api$/i, '');
 
 export function ChatProvider({ children }) {
   // Chat state

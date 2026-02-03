@@ -34,12 +34,16 @@ export default function LandingPage() {
             <span className="font-semibold text-[var(--text-primary)]">ChatGPT Clone</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <SignInButton mode="modal">
-              <button className="btn-secondary">Sign In</button>
+              <button className="btn-secondary text-xs sm:text-sm md:text-base px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2 active:scale-95 transition-transform whitespace-nowrap">
+                Sign In
+              </button>
             </SignInButton>
             <SignUpButton mode="modal">
-              <button className="btn-primary">Get Started</button>
+              <button className="btn-primary text-xs sm:text-sm md:text-base px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2 active:scale-95 transition-transform whitespace-nowrap">
+                Get Started
+              </button>
             </SignUpButton>
           </div>
         </div>
@@ -55,14 +59,14 @@ export default function LandingPage() {
             Experience the power of conversational AI. Get instant answers, 
             help with coding, creative writing, and so much more.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <SignUpButton mode="modal">
-              <button className="btn-primary text-lg px-8 py-3">
+              <button className="btn-primary w-full sm:w-auto text-base md:text-lg px-8 py-3 md:px-10 md:py-3.5 active:scale-[0.98] transition-all">
                 Start Chatting Free
               </button>
             </SignUpButton>
             <SignInButton mode="modal">
-              <button className="btn-secondary text-lg px-8 py-3">
+              <button className="btn-secondary w-full sm:w-auto text-base md:text-lg px-8 py-3 md:px-10 md:py-3.5 active:scale-[0.98] transition-all">
                 Sign In
               </button>
             </SignInButton>
